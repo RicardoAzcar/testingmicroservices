@@ -1,12 +1,12 @@
-image: openjdk:17
+image: openjdk:11.0.16-jdk
 
 stages:
   - test
   - deploy
 
 before_script:
-  - PATH=/opt/apache-maven-3.8.6/bin:/usr/local/openjdk-17/bin:$PATH
-  - JAVA_HOME=/usr/local/openjdk-17
+  - PATH=/opt/apache-maven-3.9.0/bin:/usr/local/openjdk-11/bin:$PATH
+  - JAVA_HOME=/usr/local/openjdk-11
 
 test-all:
   stage: test
