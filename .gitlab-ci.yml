@@ -1,4 +1,4 @@
-image: bellsoft/liberica-openjdk-debian:19.0.2
+image: ricardoazcar/testingmscv:latest
 
 stages:
   - test
@@ -14,8 +14,6 @@ test-all:
   except:
     - master
     - main
-  script:
-    - mvn clean install
 
 test-unit:
   stage: test
@@ -23,14 +21,6 @@ test-unit:
   only:
     - master
     - main
-  script:
-    - mvn clean package
-    - cp target/testingMicroservices*.jar testingMicroservices-${CI_COMMIT_SHA}.jar
-  artifacts:
-    name: testingMicroservices
-    expire_in: 1 week
-    paths:
-      - testingMicroservices-${CI_COMMIT_SHA}.jar
 
 deploy:
   stage: deploy
@@ -39,5 +29,3 @@ deploy:
   only:
     - master
     - main
-  script:
-    - ls testingMicroservices*.jar
