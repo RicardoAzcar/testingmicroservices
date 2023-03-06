@@ -1,12 +1,12 @@
-image: openjdk:11.0.16-jdk
+image: liberica-openjdk-debian:19.0.2
 
 stages:
   - test
   - deploy
 
 before_script:
-  - PATH=/opt/apache-maven-3.9.0/bin:/usr/local/openjdk-11/bin:$PATH
-  - JAVA_HOME=/usr/local/openjdk-11
+  - PATH=/opt/apache-maven-3.9.0/bin:/usr/local/openjdk-19/bin:$PATH
+  - JAVA_HOME=/usr/local/openjdk-19
 
 test-all:
   stage: test
